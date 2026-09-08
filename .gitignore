@@ -57,9 +57,9 @@ Thumbs.db
 # Others
 # ==========================================
 tests/data/customerinfo.data.ts
-tests/data/runner.js
-tests/data/urls.data.ts
-tests/data/user.credential.ts
-tests/data/users.json
+# tests/data/runner.js
+# tests/data/urls.data.ts
+# tests/data/user.credential.ts
+# tests/data/users.json
 src/fixtures/testData.ts
 

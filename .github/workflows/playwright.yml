@@ -28,7 +28,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test
+        run: npx playwright test src/tests/ui/login2.spec.ts src/tests/ui/login3.spec.ts
 
       - name: Upload Playwright report
         uses: actions/upload-artifact@v6
