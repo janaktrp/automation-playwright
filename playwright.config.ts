@@ -48,7 +48,7 @@ export default defineConfig({
     /* Base URL to use in actions like `await page.goto('')`. */
     baseURL: 'https://automationpractice.techwithjatin.com/',
     browserName: 'chromium',
-    headless: false, // Global setting
+    headless: !process.env.CI, // Headed mode locally, headless in CI Github Actions
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     trace: 'retain-on-failure',
