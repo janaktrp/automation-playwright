@@ -1,11 +1,19 @@
-#  CICD for Playwright Tests
+#  CICD for Playwright Tests - changes made
+
+
 name: Playwright Tests
 
 on:
   push:
-    branches: [ main, master ]
+    branches:
+      - develop
+      - main
+
   pull_request:
-    branches: [ main, master ]
+    branches:
+      - main
+  # pull_request:
+  #   branches: [ main, develop ]
 
 jobs:
   test:
@@ -13,6 +21,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check CI environment
+        run: |
+          echo "CI=$CI"
+          node -e "console.log('process.env.CI =', process.env.CI)"
+
       - name: Checkout repository
         uses: actions/checkout@v6
 
@@ -28,7 +41,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test src/tests/ui/login2.spec.ts src/tests/ui/login3.spec.ts
+        run: npx playwright test tests/ui/login2.spec.ts tests/ui/login3.spec.ts
 
       - name: Upload Playwright report
         uses: actions/upload-artifact@v6
@@ -37,3 +50,6 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
+
+
+          
