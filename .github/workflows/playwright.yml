@@ -19,6 +19,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check CI environment
+        run: |
+          echo "CI=$CI"
+          node -e "console.log('process.env.CI =', process.env.CI)"
+
       - name: Checkout repository
         uses: actions/checkout@v6
 
